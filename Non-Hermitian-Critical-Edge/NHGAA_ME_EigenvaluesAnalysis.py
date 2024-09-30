@@ -35,8 +35,8 @@ def Main():
     #主程序
 #  initial parameters
     L=610
-    v_all=[0.1,0.3,0.5,0.7,1.5]
-    theta_all=[0,pi/3,pi/2,pi]
+    v_all=[0.1,0.5,1,5,10]
+    theta_all=[-pi/3,0,pi/3,pi/2,pi]
     bd=0
 #  循环作图
     for v  in v_all:
@@ -64,8 +64,8 @@ def Main():
 def func(v):
 # 该函数与并行的代码共同使用
 # v 输入的参数代表pool当中用于并行计算的参数
-    L=10
-    theta_all=[0,pi/3,pi/2,pi]
+    L=610
+    theta_all=[-pi/3,0,pi/3,pi/2,pi]
     bd=0
     for theta in theta_all:
     #   求解本征态与本征值    
@@ -90,7 +90,7 @@ def MultiprocessingCalcualtion():
 #  采用了python当中的multiprocessing 中的pool
     with multiprocessing.Pool(processes=5) as pool:
         # 使用map函数将任务分配给进程池
-        v_all=[0.1,0.3,0.5,0.7,1.5]
+        v_all=[0.1,0.5,1,5,10]
         results=pool.map(func,v_all)
     return
 
